@@ -1,6 +1,6 @@
 require 'sinatra'
-require './lib/roller'
-require './lib/roll_validator'
+require './lib/actors/roller'
+require './lib/validators/roll_validator'
 
 class SlackSlashRoll < Sinatra::Base
   get '/' do
