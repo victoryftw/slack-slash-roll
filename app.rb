@@ -8,14 +8,14 @@ class SlackSlashRoll < Sinatra::Base
   end
 
   post '/roll' do
-    validator = RollValidator.new(params)
-    unless validator.valid?
-      return "Cheater, cheater!"
-    end
+    # validator = RollValidator.new(params)
+    # unless validator.valid?
+    #   return "Cheater, cheater!"
+    # end
 
     {
       "response_type": "in_channel",
-      "text": "#{text}",
+      "text": "kdflksjdlkfjslkdjflksdjflksjdflksjlkdfj",
     }
 
   end
