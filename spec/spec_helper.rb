@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require "./config/environment"
 require "rspec"
+require "rspec/its"
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
@@ -17,6 +18,9 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
 
-  config.warnings = true
   config.order = :random
+
+  config.before :each do
+    srand(1)
+  end
 end

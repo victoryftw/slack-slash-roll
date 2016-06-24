@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'json'
-require './lib/actors/roller'
+require './lib/actors/text_parser'
 require './lib/validators/roll_validator'
 
 module Rolling
@@ -17,9 +17,17 @@ module Rolling
         return "Cheater, cheater!"
       end
 
+      parser = TextParser.new(
+        player: validator.user_name,
+        command: validator.command,
+        text: validator.text
+      )
+
+      text = parser.process
+
       {
         "response_type": "in_channel",
-        "text": "#{params['text']}",
+        "text": "#{text}",
       }.to_json
     end
   end
