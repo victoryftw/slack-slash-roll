@@ -8,9 +8,15 @@ class SlackSlashRoll < Sinatra::Base
   end
 
   post '/roll' do
-    key = ENV["SLACK_SECRET_KEY"]
+    validator = RollValidator.new(params)
+    unless validator.valid?
+      return "Cheater, cheater!"
+    end
 
-    params
+    {
+      "response_type": "in_channel",
+      "text": "#{text}",
+    }
 
   end
 end
