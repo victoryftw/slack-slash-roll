@@ -1,2 +1,2 @@
 require "./app"
-run SlackSlashRoll.new
+run Rolling::SlackSlashRoll.new
