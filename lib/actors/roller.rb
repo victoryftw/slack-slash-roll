@@ -8,6 +8,8 @@ class Roller
   def roll
     dice_roll = DiceBag::Roll.new(@text)
 
+    dice_roll.result
+
     sections = dice_roll.tree.map do |roll|
       symbol_string = roll.first
       section_string = case symbol_string

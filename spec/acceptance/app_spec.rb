@@ -48,7 +48,7 @@ describe 'app' do
       expect(last_response).to be_ok
       body = JSON.parse(last_response.body)
 
-      expect(body).to eq({"response_type"=>"in_channel", "text"=>"15 (6, 5, 4) + 5 => 12"})
+      expect(body).to eq({"response_type"=>"in_channel", "text"=>"15 (6, 5, 4) + 5 => 20"})
     end
 
     context 'when the token is invalid' do

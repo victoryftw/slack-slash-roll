@@ -20,7 +20,7 @@ describe 'TextParser' do
       it 'returns the text thats passed in' do
         expect(Roller).to receive(:new).with(text: text).and_call_original
 
-        expect(parser.process).to eq("15 (6, 5, 4) + 5 => 12")
+        expect(parser.process).to eq("15 (6, 5, 4) + 5 => 20")
       end
     end
 

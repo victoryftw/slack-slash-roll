@@ -10,6 +10,9 @@ class TextParser
 
   def process
     text_parts = @text.split(" ")
+
+    # Handle Comments
+
     if text_parts.first.include?("def")
       MacroMaker.new(text: @text).save
     elsif text_parts.first.match(/^[A-Za-z]/)
