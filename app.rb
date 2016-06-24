@@ -8,6 +8,8 @@ class SlackSlashRoll < Sinatra::Base
   end
 
   post '/roll' do
+    content_type :json
+
     # validator = RollValidator.new(params)
     # unless validator.valid?
     #   return "Cheater, cheater!"
@@ -16,7 +18,6 @@ class SlackSlashRoll < Sinatra::Base
     {
       "response_type": "in_channel",
       "text": "kdflksjdlkfjslkdjflksdjflksjdflksjlkdfj",
-    }
-
+    }.to_json
   end
 end
