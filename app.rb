@@ -1,5 +1,6 @@
 require 'sinatra'
 require './lib/roller'
+require './lib/roll_validator'
 
 class SlackSlashRoll < Sinatra::Base
   get '/' do
@@ -9,11 +10,7 @@ class SlackSlashRoll < Sinatra::Base
   post '/roll' do
     key = ENV["SLACK_SECRET_KEY"]
 
-    if key != ""
-    "Rollin', rolling', rollin' haven't slept in weeks"
-    end
-
-    params["channel_id"]
+    params
 
   end
 end
