@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'json'
 require './lib/actors/roller'
 require './lib/validators/roll_validator'
 
