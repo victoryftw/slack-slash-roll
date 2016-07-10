@@ -23,7 +23,7 @@ describe 'app' do
   describe '/roll' do
     let(:send_token)        { "gIkuvaNzQIHg97ATvDxqgjtO" }
     let(:token)                   { send_token }
-    let(:text)                      { "3d6 + 5" }
+    let(:text)                      { "3d6 + 5 # Sword Attack" }
     let(:headers)              { {"Content-Type" => "application/json"} }
     let(:request_data) {   {
         token: token,
@@ -39,6 +39,7 @@ describe 'app' do
       } }
 
     before do
+      allow(ENV).to receive(:[]).and_call_original
       allow(ENV).to receive(:[]).with("SLACK_SECRET_KEY").and_return(send_token)
     end
 
@@ -48,7 +49,7 @@ describe 'app' do
       expect(last_response).to be_ok
       body = JSON.parse(last_response.body)
 
-      expect(body).to eq({"response_type"=>"in_channel", "text"=>"15 (6, 5, 4) + 5 => 20"})
+      expect(body).to eq({"response_type"=>"in_channel", "text"=>"15 (6, 5, 4) + 5 => 20 # Sword Attack"})
     end
 
     context 'when the token is invalid' do

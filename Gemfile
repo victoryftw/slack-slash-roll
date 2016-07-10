@@ -8,6 +8,7 @@ gem 'redis'
 gem 'foreman'
 gem 'rack'
 gem 'dicebag'
+gem 'dentaku'
 
 group :test, :development do
   gem "rspec"
