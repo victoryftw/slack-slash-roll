@@ -79,6 +79,16 @@ describe 'roller' do
       end
     end
 
+    context 'when there is one set of parens' do
+      let(:text)               { "(3d4 / 2) / 2" }
+
+      it 'returns a correct vaue' do
+        value = subject.roll
+
+        expect(value).to eq("(7 (4, 2, 1) / 2 => 3) / 2 => 1 # a comment!")
+      end
+    end
+
     context 'when there are two sets of parens' do
       let(:text) { "((3d6 - 2d4 + 1) * 5)" }
 

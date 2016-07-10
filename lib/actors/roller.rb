@@ -45,11 +45,11 @@ class Roller
     end
 
     if value = @calculator.evaluate(mcommand)
-      mcommand = value.to_s
+      mcommand = value.to_f.floor.to_s
       command += " => #{mcommand}"
     end
 
-    if /^-?[0-9]*$/ =~ mcommand
+    if /^-?[0-9\.]*$/ =~ mcommand
       [command, mcommand]
     else
       roll_dice(mcommand)
