@@ -20,7 +20,11 @@ class Roller
         "#{parse_roll(@text).first} #{@comment_char} #{@comment}"
       end
     rescue => exc
-      return exc
+      if exc == false
+        return "??? Wat ???"
+      else
+        return "INVALID DICE CODE"
+      end
     end
   end
 
@@ -61,8 +65,6 @@ class Roller
   end
 
   def roll_dice(command)
-    require 'pry'; binding.pry
-
     dice_roll = DiceBag::Roll.new(command)
 
     dice_roll.result
