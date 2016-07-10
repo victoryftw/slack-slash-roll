@@ -19,7 +19,7 @@ class TextParser
 
     text_parts = command.split(" ")
 
-    if text_parts.first.include?("def")
+    if text_parts.first.downcase.include?("def")
       MacroMaker.new(text: command, comment: comment).save
     elsif text_parts.first.match(/^[A-Za-z]/)
       MacroRoller.new(text: command, comment: comment).roll

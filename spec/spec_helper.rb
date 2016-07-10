@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require "./config/environment"
 require "rspec"
 require "rspec/its"
+require 'redis'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
