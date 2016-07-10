@@ -13,7 +13,11 @@ class Roller
   end
 
   def roll
-    "#{parse_roll(@text).first} #{@comment_char} #{@comment}"
+    if @comment.nil? || @comment == ""
+      parse_roll(@text).first
+    else
+      "#{parse_roll(@text).first} #{@comment_char} #{@comment}"
+    end
   end
 
   def parse_roll(command)

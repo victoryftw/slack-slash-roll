@@ -18,6 +18,15 @@ describe 'roller' do
 
         expect(value).to eq("1337 => 1337 # a comment!")
       end
+
+      context 'when there is no coment' do
+        let(:comment)     { "" }
+        it 'returns a correct vaue with no comment character' do
+          value = subject.roll
+
+          expect(value).to eq("1337 => 1337")
+        end
+      end
     end
 
     context 'when its just a dice code with no number' do
