@@ -13,10 +13,14 @@ class Roller
   end
 
   def roll
-    if @comment.nil? || @comment == ""
-      parse_roll(@text).first
-    else
-      "#{parse_roll(@text).first} #{@comment_char} #{@comment}"
+    begin
+      if @comment.nil? || @comment == ""
+        parse_roll(@text).first
+      else
+        "#{parse_roll(@text).first} #{@comment_char} #{@comment}"
+      end
+    rescue => exc
+      return exc
     end
   end
 
@@ -57,6 +61,8 @@ class Roller
   end
 
   def roll_dice(command)
+    require 'pry'; binding.pry
+
     dice_roll = DiceBag::Roll.new(command)
 
     dice_roll.result

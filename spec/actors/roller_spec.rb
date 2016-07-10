@@ -59,6 +59,16 @@ describe 'roller' do
       end
     end
 
+    context 'when there are no sets of parens but the code starts with a number' do
+      let(:text) { "1 - 3d6" }
+
+      it 'returns an invalid dice code error' do
+        value = subject.roll
+
+        expect(value).to eq("INVALID DICE CODE")
+      end
+    end
+
     context 'when there is one set of parens' do
       let(:text)               { "(3d6 / 2d4) - 5" }
 
